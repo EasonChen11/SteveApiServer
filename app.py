@@ -19,6 +19,10 @@ def send_id():
         # http://127.0.0.1:8180/steve/api/v1/ocppTags
         if response.status_code == 200:
             return jsonify(response.json())
+        elif response.status_code == 201:
+            return jsonify({'success':f'add the idTag ={id_tag}'})
+        elif response.status_code == 422:
+            return jsonify({'fail':f'the idTag ={id_tag} is exist'})
         else:
             return jsonify({'error': 'Failed to get a valid response from SteVe API', 'status_code': response.status_code}), response.status_code
 
