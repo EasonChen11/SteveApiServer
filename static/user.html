@@ -22,12 +22,12 @@
           event.preventDefault();
           const idTag = document.getElementById("idTag").value;
 
-          const response = await fetch("/send-id", {
+          const response = await fetch("/api/send-id", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ idTag: idTag }),
+            body: JSON.stringify({ idTag: idTag}),
           });
 
           const result = await response.json();
